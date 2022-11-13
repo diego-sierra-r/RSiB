@@ -10,39 +10,44 @@ View(x$results)
 #- comparar tiempos con benchmarch
 #- modificar funcion parque te indique que especie estas descargando data
 #- cambiar nombra de la funcion a get_specie_records
-get_onthophagus <- function(limit, offset, year, all.records = FALSE) {
+
+print_counter <- function(counter,offset) {
+  counter <- counter + 1
+  cat( "Processing ",counter,"of", offset, "pages\r")
+  flush.console()
+  return(counter)
+}
+
+get_specie_records <- function(limit = 300,
+                            offset,
+                            year,
+                            all.records = T,
+                            specieKey) {
   counter <- 0
   output <- data.frame()
   if (all.records == FALSE) {
     for (i in 1:offset) {
-      path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=1089875",
-                     "&","limit=",limit,"&","offset=",i,"&","year=",year)
-      res <- res <- GET(path)
+      path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=",
+                     specieKey,"&","limit=",limit,"&","offset=",i,"&","year=",year)
+      res <- res <- GET(path)# crear una funcion para no repetri esta parte
       x <- fromJSON(rawToChar(res$content), flatten = TRUE)
       try(output <- rbind(output,x$results), silent = T)
-      counter <- counter + 1
-      cat(counter,"\r")
-      flush.console()
+      counter <- RSiBCOL::print_counter(counter,offset)
     }
   } else {
-    path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=1089875",
-                   "&","limit=",limit,"&","offset=","1","&","year=",year)
+    path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=",
+                   specieKey,"&","limit=",limit,"&","offset=","1","&","year=",year)
     res <- res <- GET(path)
     x <- fromJSON(rawToChar(res$content), flatten = TRUE)
     offset <- x$count
     for (i in 1:offset) {
-      path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=1089875",
-                     "&","limit=",limit,"&","offset=",i,"&","year=",year)
+      path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=",
+                     specieKey,"&","limit=",limit,"&","offset=",i,"&","year=",year)
       res <- res <- GET(path)
       x <- fromJSON(rawToChar(res$content), flatten = TRUE)
       try(output <- rbind(output,x$results), silent = T)
-      counter <- counter + 1
-      cat(counter,"\r")
-      flush.console()
+      counter <- RSiBCOL::print_counter(counter,offset)
     }
-
   }
-
-
   return(output)
 }
