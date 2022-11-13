@@ -9,6 +9,7 @@ View(x$results)
 # TODO cambiar el for loop con una lsita en lugar de dataframes, esta muy lento
 #- comparar tiempos con benchmarch
 #- modificar funcion parque te indique que especie estas descargando data
+#- cambiar nombra de la funcion a get_specie_records
 get_onthophagus <- function(limit, offset, year, all.records = FALSE) {
   counter <- 0
   output <- data.frame()
