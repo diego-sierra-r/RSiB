@@ -1,4 +1,5 @@
 # cambiar esta funcion a data_wrangiling
+# usar funcion de https://r-pkgs.org/dependencies.html 11.2.1 para indcar la instalacion de colmaps
 relevant_vars  <- function(df, drop.coor.na = TRUE) {
   df <- df[, c("speciesKey", "scientificName","family", "dateIdentified",
     "decimalLongitude", "decimalLatitude", "stateProvince",  "year",

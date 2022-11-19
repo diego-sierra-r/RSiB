@@ -1,7 +1,6 @@
 #res <- GET("https://api.gbif.org/v1/occurrence/search?year=1800,2023&limit=3&country=AF")
 library(httr)
 library(jsonlite)
-library(rvest)
 
 # TODO cambiar el for loop con una lsita en lugar de dataframes, esta muy lento
 # delete library lines
