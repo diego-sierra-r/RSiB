@@ -1,15 +1,14 @@
 #res <- GET("https://api.gbif.org/v1/occurrence/search?year=1800,2023&limit=3&country=AF")
 library(httr)
 library(jsonlite)
-res <- GET("https://api.gbif.org/v1/occurrence/search?facetcountry=CO&speciesKey=1089875&limit=300&offset=171&year=2017")
-res$status_code
-x <- fromJSON(rawToChar(res$content), flatten = TRUE)
-View(x$results)
+library(rvest)
 
 # TODO cambiar el for loop con una lsita en lugar de dataframes, esta muy lento
-#- comparar tiempos con benchmarch
-#- modificar funcion parque te indique que especie estas descargando data
-#- cambiar nombra de la funcion a get_specie_records
+# delete library lines
+#- Comparar tiempos con benchmarch
+#- Poner cocos 2020 como dataset default
+#- hide print_counter
+# ponerle una clase al output de get_specie_records y testearlo
 
 print_counter <- function(counter,offset) {
   counter <- counter + 1
@@ -29,7 +28,7 @@ get_specie_records <- function(limit = 300,
     for (i in 1:offset) {
       path <- paste0("https://api.gbif.org/v1/occurrence/search?country=CO&speciesKey=",
                      specieKey,"&","limit=",limit,"&","offset=",i,"&","year=",year)
-      res <- res <- GET(path)# crear una funcion para no repetri esta parte
+      res <- GET(path)# crear una funcion para no repetri esta parte
       x <- fromJSON(rawToChar(res$content), flatten = TRUE)
       try(output <- rbind(output,x$results), silent = T)
       counter <- RSiBCOL::print_counter(counter,offset)
@@ -51,3 +50,4 @@ get_specie_records <- function(limit = 300,
   }
   return(output)
 }
+
