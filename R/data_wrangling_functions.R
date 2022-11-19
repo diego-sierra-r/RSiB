@@ -1,3 +1,18 @@
+#' Filter a data.frame using regex
+#'
+#' @param df A data.frame.
+#' @description This function is a wrapper of [dplyr::filter()] and [stringr::str_detect()] that makes partial matching easier.
+#' @param column A string with the column name to filter.
+#' @param terms A vector with a pattern to match or regular expressions.
+#' @param exclude A boolean,
+#' * `TRUE`: Keep values that does not match terms.
+#' * `FALSE`(the default): Keep just those values whose match terms.
+#' @returns A data.frame
+#' @examples
+#' filter_if_match(iris,"Species",terms = "ica", exclude = F)
+#' filter_if_match(iris,"Species",terms = "^s\\w+a$", exclude = F)
+#'
+
 filter_if_match <- function(df,column,terms, exclude = FALSE) {
   if (!is.data.frame(df)) {
     stop("You must provide an object of class data.frame ", "not a ", class(df))
@@ -28,8 +43,16 @@ filter_if_match <- function(df,column,terms, exclude = FALSE) {
   return(output)
 }
 
-
-
+#' Pick slices of a data.frame
+  #' @description With [slicer()] it's possible subset rows choosing how wide you want the resulting data.drame and which slice you want to pick.
+  #' @param df A data.frame.
+  #' @param slice An integer, the slice number to keep.
+  #' @param wide An integer, the number of rows the slice is going to have.
+  #' @returns a data.frame
+  #' @examples
+  #' slicer(iris,1,4)
+  #' slicer(iris,6,2)
+  #'
 slicer <- function(df, slice, wide) {
   if (!is.data.frame(df)) {
     stop("You must provide an object of class data.frame ", "not a ", class(df))
