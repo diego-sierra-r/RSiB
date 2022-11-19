@@ -22,7 +22,7 @@ filter_if_match <- function(df,column,terms, exclude = FALSE) {
       )
     }
   }
-  if (nrow(df) == nrow(output)) warning("All rows if your data.frame match the terms, nothing to do.")
+  if (nrow(df) == nrow(output)) warning("All rows in your data.frame match the terms, nothing to do.")
   if (nrow(output) == 0 ) message("Your terms excluded all rows")
 
   return(output)
