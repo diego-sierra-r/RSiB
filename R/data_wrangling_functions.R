@@ -1,7 +1,7 @@
 #' Filter a data.frame using regex
-#'
-#' @param df A data.frame.
+
 #' @description This function is a wrapper of [dplyr::filter()] and [stringr::str_detect()] that makes partial matching easier.
+#' @param df A data.frame.
 #' @param column A string with the column name to filter.
 #' @param terms A vector with a pattern to match or regular expressions.
 #' @param exclude A boolean,
