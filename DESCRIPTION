@@ -3,7 +3,7 @@ Type: Package
 Title: Connect R to SiB API to get biodiversity records from Colombia.
 Version: 0.0.0.9000
 Authors@R: 
-    person("Diego", "Sierra Ramirez", , "dsierrar@ut.edu.co"), role = c("aut", "cre"))
+  person("Diego", "Sierra Ramirez", "dsierrar@ut.edu.co"), role = c("aut", "cre"))
 Description: Create a connection between R and SiB API to get records from any registered specie, it can create basic maps to represent records through departments and municipalities.
 URL: https://github.com/diego-sierra-r/RSiB/
 BugReports: https://github.com/diego-sierra-r/RSiB/issues

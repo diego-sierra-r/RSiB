@@ -5,6 +5,7 @@
 #- hide print_counter
 # ponerle una clase al output de get_specie_records y testearlo
 # despues de docuemntar ver si citation() sirve
+# verificar que pasa con Author@R en DESCRIPTION error when check()
 
 #' Print a simple counter
 #' @description Simple counter printer used in [RSiBCOL::get_specie_records()] to give information to the user.
@@ -22,6 +23,8 @@ print_counter <- function(counter,offset) {
 }
 
 #' Get record from SiB API
+#' @import httr
+#' @import jsonlite
 #' @description Create queries and generate a data.frame with information from
 #' SiB databases using the GIBF API.
 #' @details With this function is possible create queries to the GIBF API to get
