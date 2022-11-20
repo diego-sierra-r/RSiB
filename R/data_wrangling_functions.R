@@ -4,7 +4,7 @@
 #' @param df A data.frame.
 #' @param column A string with the column name to filter.
 #' @param terms A vector with a pattern to match or regular expressions.
-#' @param exclude A boolean,
+#' @param exclude logical.
 #' * `TRUE`: Keep values that does not match terms.
 #' * `FALSE`(the default): Keep just those values whose match terms.
 #' @returns A data.frame

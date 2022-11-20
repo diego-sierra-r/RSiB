@@ -1,16 +1,8 @@
-# TODO cambiar el for loop con una lsita en lugar de dataframes, esta muy lento
-# quitar in "An integer" from documentation, to a number
-#- Comparar tiempos con benchmarch
-#- Poner cocos 2020 como dataset default
-#- hide print_counter
-# ponerle una clase al output de get_specie_records y testearlo
-# despues de docuemntar ver si citation() sirve
-# verificar que pasa con Author@R en DESCRIPTION error when check()
 
 #' Print a simple counter
 #' @description Simple counter printer used in [RSiBCOL::get_specie_records()] to give information to the user.
-#' @param counter An integer, The counter's startpoint.
-#' @param offset An integer, the page number from SiB API.
+#' @param counter An integer or an object which can be coerced to such, The counter's startpoint.
+#' @param offset An integer or an object which can be coerced to such, the page number from SiB API.
 #' @return An integer.
 #' @export
 #'
@@ -33,14 +25,14 @@ print_counter <- function(counter,offset) {
 #'
 #' The output data.fame include relevant information such as taxonomy details,
 #' coordinates, states/province where the specimens where collected and dates.
-#' @param limit An integer. The number of rows you want to get by offset.
+#' @param limit An integer or an object which can be coerced to such. The number of rows you want to get by offset.
 #' Maximum possible number is 300 because of API limitations.
-#' @param offset An integer. If there are more that 300 records GIFB API release
+#' @param offset An integer or an object which can be coerced to such. If there are more that 300 records GIFB API release
 #' additional records in a different offset (page), this parameter is useful to
 #' select an specific page, when all.records = TRUE offset is recalculated internally.
-#' @param year numeric vector representing a single year.
-#' @param all.records Boolean, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.
-#' @param specieKey A numeric vector with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting [GBIF Backbone Taxonomy](https://www.gbif.org/species/search)
+#' @param year An integer or an object which can be coerced to such. Its a single year.
+#' @param all.records logical, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.
+#' @param specieKey An integer or an object which can be coerced to such with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting [GBIF Backbone Taxonomy](https://www.gbif.org/species/search)
 #' @return A dataframe.
 #' @examples
 #' get_specie_records(limit = 1,offset = 1, year = 2020, all.records = F,specieKey = 8953936)
@@ -81,4 +73,5 @@ get_specie_records <- function(limit = 300,
   }
   return(output)
 }
+
 
