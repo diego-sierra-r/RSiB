@@ -30,9 +30,9 @@ print_counter <- function(counter,offset) {
 #' @param offset An integer or an object which can be coerced to such. If there are more that 300 records GIFB API release
 #' additional records in a different offset (page), this parameter is useful to
 #' select an specific page, when all.records = TRUE offset is recalculated internally.
-#' @param year An integer or an object which can be coerced to such. Its a single year.
+#' @param year numeric vector representing a single year.
 #' @param all.records logical, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.
-#' @param specieKey An integer or an object which can be coerced to such with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting [GBIF Backbone Taxonomy](https://www.gbif.org/species/search)
+#' @param specieKey A numeric vector with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting [GBIF Backbone Taxonomy](https://www.gbif.org/species/search)
 #' @return A dataframe.
 #' @examples
 #' get_specie_records(limit = 1,offset = 1, year = 2020, all.records = F,specieKey = 8953936)
@@ -73,5 +73,4 @@ get_specie_records <- function(limit = 300,
   }
   return(output)
 }
-
 
