@@ -28,5 +28,4 @@ This function is a wrapper of \code{\link[dplyr:filter]{dplyr::filter()}} and \c
 \examples{
 filter_if_match(iris,"Species",terms = "ica", exclude = F)
 filter_if_match(iris,"Species",terms = "^s\\\\w+a$", exclude = F)
-
 }

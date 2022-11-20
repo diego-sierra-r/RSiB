@@ -8,7 +8,7 @@ get_specie_records(limit = 300, offset, year, all.records = T, specieKey)
 }
 \arguments{
 \item{limit}{An integer. The number of rows you want to get by offset.
-Maximum posible number is 300 because of API limitations.}
+Maximum possible number is 300 because of API limitations.}
 
 \item{offset}{An integer. If there are more that 300 records GIFB API release
 additional records in a different offset (page), this parameter is useful to
@@ -19,6 +19,9 @@ select an specific page, when all.records = TRUE offset is recalculated internal
 \item{all.records}{Boolean, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.}
 
 \item{specieKey}{A numeric vector with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting \href{https://www.gbif.org/species/search}{GBIF Backbone Taxonomy}}
+}
+\value{
+A dataframe.
 }
 \description{
 Create queries and generate a data.frame with information from
@@ -31,4 +34,8 @@ specie during a particular year.
 
 The output data.fame include relevant information such as taxonomy details,
 coordinates, states/province where the specimens where collected and dates.
+}
+\examples{
+get_specie_records(limit = 1,offset = 1, year = 2020, all.records = F,specieKey = 8953936)
+get_specie_records(limit = 300,offset = NULL, year = 2020, all.records = T,specieKey = 8953936)
 }

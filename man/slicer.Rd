@@ -22,5 +22,4 @@ With \code{\link[=slicer]{slicer()}} it's possible subset rows choosing how wide
 \examples{
 slicer(iris,1,4)
 slicer(iris,6,2)
-
 }
