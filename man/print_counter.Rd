@@ -7,9 +7,9 @@
 print_counter(counter, offset)
 }
 \arguments{
-\item{counter}{An integer, The counter's startpoint.}
+\item{counter}{An integer or an object which can be coerced to such, The counter's startpoint.}
 
-\item{offset}{An integer, the page number from SiB API.}
+\item{offset}{An integer or an object which can be coerced to such, the page number from SiB API.}
 }
 \value{
 An integer.

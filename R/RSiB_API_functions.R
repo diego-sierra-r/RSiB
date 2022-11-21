@@ -14,7 +14,7 @@ print_counter <- function(counter,offset) {
   return(counter)
 }
 
-#' Get record from SiB API
+#' Get records from SiB API
 #' @import httr
 #' @import jsonlite
 #' @description Create queries and generate a data.frame with information from
@@ -35,15 +35,15 @@ print_counter <- function(counter,offset) {
 #' @param specieKey A numeric vector with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting [GBIF Backbone Taxonomy](https://www.gbif.org/species/search)
 #' @return A dataframe.
 #' @examples
-#' get_specie_records(limit = 1,offset = 1, year = 2020, all.records = F,specieKey = 8953936)
-#' get_specie_records(limit = 300,offset = NULL, year = 2020, all.records = T,specieKey = 8953936)
+#' get_specie_records(limit = 1,offset = 1, year = 2020, all.records = FALSE ,specieKey = 8953936)
+#' get_specie_records(limit = 300,offset = NULL, year = 2020, all.records = TRUE,specieKey = 8953936)
 #' @export
 #'
 
 get_specie_records <- function(limit = 300,
                             offset,
                             year,
-                            all.records = T,
+                            all.records = TRUE,
                             specieKey) {
   counter <- 0
   output <- data.frame()
@@ -67,7 +67,7 @@ get_specie_records <- function(limit = 300,
                      specieKey,"&","limit=",limit,"&","offset=",i,"&","year=",year)
       res <- res <- GET(path)
       x <- fromJSON(rawToChar(res$content), flatten = TRUE)
-      try(output <- rbind(output,x$results), silent = T)
+      try(output <- rbind(output,x$results), silent = TRUE)
       counter <- RSiBCOL::print_counter(counter,offset)
     }
   }

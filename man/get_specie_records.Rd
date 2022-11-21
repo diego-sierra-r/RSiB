@@ -2,21 +2,21 @@
 % Please edit documentation in R/RSiB_API_functions.R
 \name{get_specie_records}
 \alias{get_specie_records}
-\title{Get record from SiB API}
+\title{Get records from SiB API}
 \usage{
-get_specie_records(limit = 300, offset, year, all.records = T, specieKey)
+get_specie_records(limit = 300, offset, year, all.records = TRUE, specieKey)
 }
 \arguments{
-\item{limit}{An integer. The number of rows you want to get by offset.
+\item{limit}{An integer or an object which can be coerced to such. The number of rows you want to get by offset.
 Maximum possible number is 300 because of API limitations.}
 
-\item{offset}{An integer. If there are more that 300 records GIFB API release
+\item{offset}{An integer or an object which can be coerced to such. If there are more that 300 records GIFB API release
 additional records in a different offset (page), this parameter is useful to
 select an specific page, when all.records = TRUE offset is recalculated internally.}
 
 \item{year}{numeric vector representing a single year.}
 
-\item{all.records}{Boolean, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.}
+\item{all.records}{logical, when TRUE (default) this function calculate the max offset number and return all records on GBIF databases. Use FALSE to get just some records specified by limit and offset.}
 
 \item{specieKey}{A numeric vector with a single GBIF taxon ID, you can search those IDs in GBIF Backbone Taxonomy database visiting \href{https://www.gbif.org/species/search}{GBIF Backbone Taxonomy}}
 }
@@ -36,6 +36,6 @@ The output data.fame include relevant information such as taxonomy details,
 coordinates, states/province where the specimens where collected and dates.
 }
 \examples{
-get_specie_records(limit = 1,offset = 1, year = 2020, all.records = F,specieKey = 8953936)
-get_specie_records(limit = 300,offset = NULL, year = 2020, all.records = T,specieKey = 8953936)
+get_specie_records(limit = 1,offset = 1, year = 2020, all.records = FALSE ,specieKey = 8953936)
+get_specie_records(limit = 300,offset = NULL, year = 2020, all.records = TRUE,specieKey = 8953936)
 }

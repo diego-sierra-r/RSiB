@@ -13,7 +13,7 @@ filter_if_match(df, column, terms, exclude = FALSE)
 
 \item{terms}{A vector with a pattern to match or regular expressions.}
 
-\item{exclude}{A boolean,
+\item{exclude}{Logical,
 \itemize{
 \item \code{TRUE}: Keep values that does not match terms.
 \item \code{FALSE}(the default): Keep just those values whose match terms.
@@ -26,6 +26,6 @@ A data.frame
 This function is a wrapper of \code{\link[dplyr:filter]{dplyr::filter()}} and \code{\link[stringr:str_detect]{stringr::str_detect()}} that makes partial matching easier.
 }
 \examples{
-filter_if_match(iris,"Species",terms = "ica", exclude = F)
-filter_if_match(iris,"Species",terms = "^s\\\\w+a$", exclude = F)
+filter_if_match(iris,"Species",terms = "ica", exclude = FALSE)
+filter_if_match(iris,"Species",terms = "^s\\\\w+a$", exclude = FALSE)
 }

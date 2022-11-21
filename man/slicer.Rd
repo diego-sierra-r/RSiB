@@ -9,9 +9,9 @@ slicer(df, slice, wide)
 \arguments{
 \item{df}{A data.frame.}
 
-\item{slice}{An integer, the slice number to keep.}
+\item{slice}{An integer or an object which can be coerced to such, the slice number to keep.}
 
-\item{wide}{An integer, the number of rows the slice is going to have.}
+\item{wide}{An integer or an object which can be coerced to such, the number of rows the slice is going to have.}
 }
 \value{
 a data.frame
