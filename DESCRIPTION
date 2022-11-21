@@ -1,14 +1,24 @@
 Package: RSiBCOL
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Connect R to SiB API to get biodiversity records from Colombia
+Version: 0.0.0.9000
+Authors@R: person("Diego", "Sierra Ramirez", , "dsdsd@dsd",role = c("aut","cre"))
+Description: Create a connection between R and SiB API to get records from any registered specie, it can create basic maps to represent records through departments and municipalities.
+URL: https://github.com/diego-sierra-r/RSiB/
+BugReports: https://github.com/diego-sierra-r/RSiB/issues
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
 LazyData: true
+Imports:
+    dplyr,
+    stringr,
+    httr,
+    jsonlite,
+    sf,
+    tmap,
+    colmaps
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+License: CC BY 4.0

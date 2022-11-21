@@ -7,9 +7,9 @@ test_that("relevant_vars function keeps just relevant vars",{
 
 test_that("relevant_vars drop NAs with drop.na.coor argument",{
   expect_equal(object = nrow(relevant_vars(caiman_crocodilus,drop.coor.na = F)),
-               expected = 4641)
+               expected = 100)
   expect_equal(object = nrow(relevant_vars(caiman_crocodilus,drop.coor.na = T)),
-               expected = 4599)
+               expected = 98)
 })
 
 #### map_colombia ###
