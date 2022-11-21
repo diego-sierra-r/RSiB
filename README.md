@@ -78,7 +78,7 @@ filter_if_match(caiman_crocodilus,
 ```
 
 Finally, `RSiBCOL` can generate some basic plots to represent records
-over a map. This objects can be customized an enhanced using `tmap`
+over a map. This objects can be customized and enhanced using `tmap`
 packaged according to specific needs.
 
 ``` r
