@@ -4,12 +4,12 @@
 # RSiBCOL
 
 The goal of `RSiBCOL` is to create queries and get data from SiB
-databases, This packages helps you to pull data from GIBF API like
+databases, This package helps you to pull data from GIBF API like
 *location*, *coordinates*, *sex*, *dates* and relevant information
 related with taxonomy for any specie record in Colombia using R syntax.
 Furthermore, `RSiBCOL` can create basic maps to represent records on a
-geographic context and those maps can be customized easily using `tmap`
-if you need specific changes.
+geographic context, those maps can be customized easily using `tmap`
+package if you need specific changes.
 
 ## Installation
 
@@ -79,7 +79,7 @@ filter_if_match(caiman_crocodilus,
 
 Finally, `RSiBCOL` can generate some basic plots to represent records
 over a map. This objects can be customized and enhanced using `tmap`
-packaged according to specific needs.
+package according to specific needs.
 
 ``` r
 # whole map
