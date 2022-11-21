@@ -18,48 +18,50 @@ knitr::opts_chunk$set(
 
 # RSiBCOL
 
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/diego-sierra-r/RSiB/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/diego-sierra-r/RSiB/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end -->
 
 The goal of `RSiBCOL` is to create queries and get data from SiB databases, This packages helps you to pull data from GIBF API like *location*, *coordinates*, *sex*, *dates* and relevant information related with taxonomy for any specie record in Colombia using R syntax. Furthermore, `RSiBCOL` can create basic maps to represent records on a geographic context and those maps can be customized easily using `tmap` if you need specific changes. 
 
 ## Installation
 
-You can install the development version of RSiBCOL from [GitHub](https://github.com/) with:
+You can install the development version of `RSiBCOL` after installing `colmaps` from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
+
+if (!require("colmaps")) devtools::install_github("nebulae-co/colmaps")
 devtools::install_github("diego-sierra-r/RSiB")
+
 ```
 
 ## Example
 
-Imagine you need to get all  *Caiman cocodrilus* records for a specific year in Colombia. With `RSiBCOL` the first thing you have to do to accomplish this task is go to [GBIF Backbone Taxonomy](https://www.gbif.org/species/search) and find the GBIF taxon ID. In this case is  8953936.
+Imagine you need to get all  *Caiman cocodrilus* records for a specific year in Colombia. With `RSiBCOL` the first thing you have to do is go to [GBIF Backbone Taxonomy](https://www.gbif.org/species/search) and find the GBIF taxon ID. In this case is  8953936.
 
 Then, it's possible to use get_specie_records() function to find all records for *Caiman cocodrilus* registered in 2020.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 devtools::load_all()
 ```
 
-```{r}
+```{r message=FALSE}
 library("RSiBCOL")
 ```
 
 ```{r example, eval=FALSE}
-get_specie_records(year = 2020, all.records = TRUE,specieKey = 8953936)
+get_specie_records(year = 2020, 
+                   all.records = TRUE,
+                   specieKey = 8953936)
 ```
 
 If you want just some records you can use limit and offset arguments.
 
-```{r}
+```{r eval=FALSE}
 get_specie_records(limit = 5,
                    offset = 1,
                    year = 2020, 
                    all.records = FALSE,
                    specieKey = 8953936)
-# when all.records = TRUE its overides limit and offset arguments
+# when all.records = TRUE its overrides limit and offset arguments
 
 ```
 
@@ -97,6 +99,8 @@ map_depto(df = caiman_crocodilus,
 ```
 
 ```{r}
+# Municipality map
+
 map_mun(caiman_crocodilus,
         mun = "Barrancas",
         column = "species",
